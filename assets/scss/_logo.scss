@@ -1,5 +1,6 @@
 .logo {
   display: flex;
+  min-width: 50px;
   align-items: center;
   text-decoration: none;
   font-weight: bold;
@@ -15,9 +16,28 @@
   }
 
   &__text {
+    display: inline-block;
+    width: 2.2ch;
     font-size: 1.125rem;
     white-space: nowrap;
+    overflow:hidden;
+    animation: typing-base 0.15s steps(1);
   }
+
+  &__text::after {
+    content: 'w';
+  }
+
+
+  &:hover > &__text::after {
+    content: 'e home.md';
+  }
+
+  &:hover > &__text {
+    width: 10.9ch;
+    animation: typing-hover 0.3s steps(9);
+  }
+
 
   &__cursor {
     display: inline-block;
@@ -35,6 +55,18 @@
     }
   }
 
+}
+
+@keyframes typing-base {
+  from {
+    width: 1ch
+  }
+}
+
+@keyframes typing-hover {
+  from {
+    width: 1ch
+  }
 }
 
 @keyframes cursor {

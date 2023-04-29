@@ -50,6 +50,8 @@
     <meta property="article:published_time" content="{{ time .Date }}" />
 {{ end }}
 
+{{ if .Params.math }}{{ partial "math.html" }}{{ end }}
+
 <!-- RSS -->
 {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
